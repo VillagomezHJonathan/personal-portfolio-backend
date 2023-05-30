@@ -19,10 +19,10 @@ app.post(`${process.env.ENDPOINT}`, (req, res) => {
     <p>${req.body.message}</p>
   `
 
-  async function main() {
+  const main = async () => {
     let transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,
+      host: process.env.NODEMAILHOST,
+      port: process.env.NODEMAILPORT,
       secure: true,
       auth: {
         user: process.env.NODEMAILERUSER,
