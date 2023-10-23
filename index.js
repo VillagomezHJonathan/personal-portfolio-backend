@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3001
 
 const app = express()
 
-app.post(`${process.env.ENDPOINT}`, (req, res) => {
+app.post('/', (req, res) => {
   const output = `
     <p>You have a new contact request</p>
     <h3>Contact Details</h3>
@@ -25,14 +25,14 @@ app.post(`${process.env.ENDPOINT}`, (req, res) => {
       port: process.env.NODEMAILPORT,
       secure: true,
       auth: {
-        user: process.env.NODEMAILERUSER,
-        pass: process.env.NODEMAILERPASSWORD
+        user: process.env.NODEMAILUSER,
+        pass: process.env.NODEMAILPASSWORD
       }
     })
 
     let info = await transporter.sendMail({
       from: '"Nodemailer" <contact@gmail.com>',
-      to: process.env.EMAIL,
+      to: process.env.NODEMAILUSER,
       subject: 'Contact Request',
       text: '',
       html: output
