@@ -50,7 +50,14 @@ app.post('/', (req, res) => {
 
     console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
   }
-  main().catch(console.error)
+  main()
+    .then(() => {
+      res.json({ message: 'Succesfully sent email!' })
+    })
+    .catch((err) => {
+      console.error(err)
+      res.json({ message: 'Unsuccesful in sending email!' })
+    })
 })
 
 app.listen(PORT, () => {
