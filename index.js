@@ -29,18 +29,18 @@ app.post('/', (req, res) => {
 
   const main = async () => {
     let transporter = nodemailer.createTransport({
-      host: process.env.NODEMAILHOST,
-      port: process.env.NODEMAILPORT,
+      host: process.env.NODEMAIL_HOST,
+      port: process.env.NODEMAIL_PORT,
       secure: true,
       auth: {
-        user: process.env.NODEMAILUSER,
-        pass: process.env.NODEMAILPASSWORD
+        user: process.env.NODEMAIL_USER,
+        pass: process.env.NODEMAIL_PASSWORD
       }
     })
 
     let info = await transporter.sendMail({
       from: '"Nodemailer" <contact@gmail.com>',
-      to: process.env.NODEMAILUSER,
+      to: process.env.NODEMAIL_USER,
       subject: 'Contact Request',
       text: '',
       html: output
