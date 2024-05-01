@@ -15,6 +15,19 @@ app.use(
 app.use(express.json())
 
 app.post('/', (req, res) => {
+
+  const output = `
+    <p>You have a new contact request</p>
+    <h3>Contact Details</h3>
+    <ul>
+      <li>Name: ${req.body.name}</li>
+      <li>Email: ${req.body.email}</li>
+      <li>Subject: ${req.body.subject}</li>
+    </ul>
+    <h3>Message</h3>
+    <p>${req.body.message}</p>
+  `
+  
   const main = async () => {
     const transporter = nodemailer.createTransport({
       host: process.env.NODEMAILER_HOST,
@@ -30,7 +43,8 @@ app.post('/', (req, res) => {
       from: process.env.NODEMAILER_EMAIL,
       to: process.env.EMAIL,
       subject: 'Contact Request',
-      text: 'LOL'
+      text: '',
+      html: output
     })
   }
 
