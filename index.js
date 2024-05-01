@@ -15,41 +15,25 @@ app.use(
 app.use(express.json())
 
 app.post('/', (req, res) => {
-  const output = `
-    <p>You have a new contact request</p>
-    <h3>Contact Details</h3>
-    <ul>
-      <li>Name: ${req.body.name}</li>
-      <li>Email: ${req.body.email}</li>
-      <li>Subject: ${req.body.subject}</li>
-    </ul>
-    <h3>Message</h3>
-    <p>${req.body.message}</p>
-  `
-
   const main = async () => {
-    let transporter = nodemailer.createTransport({
-      host: process.env.NODEMAIL_HOST,
-      port: process.env.NODEMAIL_PORT,
+    const transporter = nodemailer.createTransport({
+      host: process.env.NODEMAILER_HOST,
+      port: process.env.NODEMAILER_PORT,
       secure: true,
       auth: {
-        user: process.env.NODEMAIL_USER,
-        pass: process.env.NODEMAIL_PASSWORD
+        user: process.env.NODEMAILER_EMAIL,
+        pass: process.env.NODEMAILER_PASS
       }
     })
 
-    let info = await transporter.sendMail({
-      from: '"Nodemailer" <contact@gmail.com>',
-      to: process.env.NODEMAIL_USER,
+    await transporter.sendMail({
+      from: process.env.NODEMAILER_EMAIL,
+      to: process.env.EMAIL,
       subject: 'Contact Request',
-      text: '',
-      html: output
+      text: 'LOL'
     })
-
-    console.log('Message sent: %s', info.messageId)
-
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info))
   }
+
   main()
     .then(() => {
       res.json({ message: 'Succesfully sent email!' })
