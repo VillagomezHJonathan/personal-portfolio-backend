@@ -2,11 +2,13 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
 const express = require('express')
+const cors = require('cors')
 const nodemailer = require('nodemailer')
 
 const PORT = process.env.PORT || 3001
 const app = express()
 
+app.use(cors())
 app.use(
   express.urlencoded({
     extended: true
