@@ -8,7 +8,8 @@
 Portoflio showcasing my projects!
 <br/>
 <br/>
-<a href="https://www.jonweb.dev/">View Demo</a>  
+<a href="https://www.jonweb.dev/">View Demo</a> .
+<a href="https://github.com/venoblin/personal-portfolio-frontend">Front-End</a>  
 </p>
 </div>
 
