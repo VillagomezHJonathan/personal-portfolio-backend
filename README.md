@@ -13,13 +13,7 @@ Portoflio showcasing my projects!
 </p>
 </div>
 
-Table of Contents
-
-- [Getting Started](#getting-started)
-  - [Installation](#installation)
-
 ## About The Project
-
 ![Screenshot](.project-images/portfolio-screenshot.png)
 
 This project, my personal portfolio, is a culmination of my passion for web development and my desire to showcase my skills and experience in an engaging and interactive way. Built with React, JavaScript, and Sass, it's designed to be a dynamic and responsive platform that adapts seamlessly to any device.
@@ -30,7 +24,6 @@ This portfolio is a testament to my continuous learning and growth as a develope
 
 
 ### Built With
-
 This project was built with the following technologies:
 
 - <img src="https://img.shields.io/badge/Node.js-6DA55F?logo=node.js&logoColor=white" alt="Node.js" />
